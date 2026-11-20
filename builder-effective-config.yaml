@@ -1,0 +1,35 @@
+directories:
+  output: release
+  buildResources: assets
+appId: com.nebulabrowser.desktop
+productName: Nebula Browser
+artifactName: Nebula-Browser-${version}-${arch}.${ext}
+asar: true
+files:
+  - filter:
+      - main.js
+      - preload.js
+      - index.html
+      - renderer.js
+      - styles.css
+      - assets/**/*
+      - package.json
+win:
+  icon: assets/nebula.ico
+  target:
+    - target: nsis
+      arch:
+        - x64
+    - target: portable
+      arch:
+        - x64
+nsis:
+  oneClick: false
+  allowToChangeInstallationDirectory: true
+  createDesktopShortcut: true
+  createStartMenuShortcut: true
+  shortcutName: Nebula Browser
+  deleteAppDataOnUninstall: false
+portable:
+  artifactName: Nebula-Browser-Portable-${version}.${ext}
+electronVersion: 45.0.0
